@@ -1,41 +1,244 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section data-visibility="hidden">Slide X</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>POO et UML</section>
+			<section>
+				<h2>Qu'est-ce que la POO ?</h2>
+				<p>La POO est un paradigme de programmation qui utilise des objets pour représenter les données et les
+					opérations.</p>
+			</section>
+			<section>
+				<h2>Class et objet</h2>
+				<p>Une classe est un modèle qui définit les caractéristiques communes d'un ensemble d'objets.</p>
+				<p>Un objet est une instance d'une classe.</p>
+			</section>
+			<section>
+				<h2>Propriété et méthode</h2>
+				<p>Une propriété est une caractéristique d'une classe.</p>
+				<p>Ex: nom, age, sexe, etc.</p>
+				<p>Une méthode est une action que l'objet peut effectuer.</p>
+				<p>Ex: manger, dormir, etc.</p>
+			</section>
+			<section>
+				<h2>Exemple de class en php</h2>
+				<pre><code class="php">
+					class Personne {
+						// Propriétés
+						public $nom;
+						public $age;
+						public $sexe;
+
+						// Constructeur
+						public function __construct($nom, $age, $sexe) {
+							$this->nom = $nom;
+							$this->age = $age;
+							$this->sexe = $sexe;
+						}
+					
+						// Méthodes
+						public function manger() {
+							return "Je mange";
+						}
+						public function dormir() {
+							return "Je dors";
+						}
+					}
+				</code></pre>
+			</section>
+			<section>
+				<h2>Exemple d'objet en php</h2>
+				<pre><code class="php">
+					// Création d'un objet
+					$personne = new Personne("John", 30, "Masculin");
+					
+					// Appel des méthodes
+					$personne->manger();
+					$personne->dormir();
+				</code></pre>
+			</section>
+			<section>
+				<h2>Class active ou passive</h2>
+				<p>Une class active est une class qui a des méthodes qui peuvent être appelées.</p>
+				<p>Une class passive est une class qui n'a pas de méthodes qui peuvent être appelées.</p>
+			</section>
+			<section>
+				<h2>Principes de la POO</h2>
+				<ul>
+					<li>Encapsulation</li>
+					<li>Héritage</li>
+					<li>Abstraction</li>
+					<li>Polymorphisme</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h2>Encapsulation</h2>
+					<p>Encapsulation est une technique qui permet de cacher les données d'une classe et de les protéger.
+					</p>
+					<p>On utilise les mots-clés private et public pour encapsuler les données.</p>
+				</section>
+				<section>
+					<h2>Exemple d'encapsulation en php</h2>
+					<pre><code class="php">
+					class Personne {
+						// Propriétés
+						public $nom;
+						public $age;
+						public $sexe;
+						private $rib;
+
+						// Constructeur
+						public function __construct($nom, $age, $sexe, $rib) {
+							$this->nom = $nom;
+							$this->age = $age;
+							$this->sexe = $sexe;
+							$this->rib = $rib;
+						}
+					
+						// Méthodes
+						public function manger() {
+							return "Je mange";
+						}
+						public function dormir() {
+							return "Je dors";
+						}
+					}
+				</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Héritage</h2>
+					<p>L'héritage permet à une classe d'hériter des propriétés et des méthodes d'une autre classe.</p>
+				</section>
+				<section>
+					<h2>Exemple d'héritage en php</h2>
+					<pre><code class="php">
+					class Personne {
+						// Propriétés
+						public $nom;
+						public $age;
+						public $sexe;
+
+						// Constructeur
+						public function __construct($nom, $age, $sexe) {
+							$this->nom = $nom;
+							$this->age = $age;
+							$this->sexe = $sexe;
+						}
+					
+						// Méthodes
+						public function manger() {
+							return "Je mange";
+						}
+						public function dormir() {
+							return "Je dors";
+						}
+					}
+
+				class Etudiant extends Personne {
+					// Propriétés
+					public $moyenne;
+
+					// Constructeur
+					public function __construct($nom, $age, $sexe, $moyenne) {
+						parent::__construct($nom, $age, $sexe);
+						$this->moyenne = $moyenne;
+					}
+				
+					// Méthodes
+					public function etudier() {
+						return "Je suis en train d'étudier";
+					}
+				}
+			</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Abstraction</h2>
+					<p>Les classes abstratites sont des classes qui ne peuvent pas être instanciées mais seulement
+						héritées.</p>
+					<p>C'est un peu comme une extension que l'on peut utiliser quand on veut</p>
+				</section>
+				<section>
+					<h2>Exemple d'abstraction en php</h2>
+					<pre><code class="php">
+						abstract class Vehicule {						
+							// Méthodes
+							public function demarrer() {
+								return "Le vehicule demarre";
+							}
+							public function arreter() {
+								return "Le vehicule s'arrete";
+							}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h2>Exemple d'utilisation de la classe abstraite</h2>
+					<pre><code class="php">
+						class Voiture extends Vehicule {
+							// Propriétés
+							public $marque;
+							public $modele;
+							public $annee;
+
+							// Constructeur
+							public function __construct($marque, $modele, $annee) {
+								$this->marque = $marque;
+								$this->modele = $modele;
+								$this->annee = $annee;
+							}
+						
+						}
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Polymorphisme</h2>
+					<p>Le polymorphisme permet à une classe d'avoir plusieurs formes.</p>
+					<p>C'est à dire qu'une classe peut avoir plusieurs méthodes avec le même nom mais avec des
+						paramètres
+						différents.</p>
+				</section>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
 </html>
